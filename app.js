@@ -1,5 +1,13 @@
-const mw = require('./middleware');
+const middleware = require('./middleware');
 const Koa = require('koa');
-const app = mw(new Koa());
+const config = require('./config');
+const app = new Koa();
 
-// app.listen(3000);
+// init middleware
+middleware(app, config);
+
+// listen
+const HOST = config.host || process.env.HOST || '0.0.0.0';
+const PORT = config.port || process.env.PORT || 3000;
+app.listen(PORT, HOST);
+
