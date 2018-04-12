@@ -9,7 +9,7 @@ const routes = require('./routes')(resolve('routes'));
 const serve = require('./static')(resolve('public'));
 const viewPath = resolve('views');
 
-module.exports = function (app) {
+module.exports = function (app, config) {
   // views
   app.use(hbs.middleware({
       viewPath,
