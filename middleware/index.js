@@ -1,12 +1,15 @@
 const path = require('path');
 const logger = require('koa-logger');
 const body = require('koa-body');
+const serve = require('koa-static');
 const hbs = require('./handlebars');
-const config = require('../config');
+const orm = require('./orm');
+const style = require('./style');
+const script = require('./script');
 
 const resolve = path.join.bind(path, __dirname, '..');
 const routes = require('./routes')(resolve('routes'));
-const serve = require('./static')(resolve('public'));
+const publicPath = resolve('public');
 const viewPath = resolve('views');
 
 module.exports = function (app, config) {
@@ -20,9 +23,13 @@ module.exports = function (app, config) {
   // logger
   app.use(logger());
 
-  // static
-  app.use(serve.less(viewPath));
-  app.use(serve.static());
+  // resources
+  app.use(style(viewPath));
+  app.use(script(viewPath));
+  app.use(serve(publicPath));
+
+  // ORM
+  app.use(orm(resolve('models'), config.orm));
 
   // body parser
   app.use(body());
