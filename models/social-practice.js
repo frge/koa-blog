@@ -6,12 +6,12 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    startTime: {
+    begin: {
       type: DataTypes.DATE,
       allowNull: false,
       comment: '开始时间',
     },
-    endTime: {
+    end: {
       type: DataTypes.DATE,
       comment: '结束时间',
     },

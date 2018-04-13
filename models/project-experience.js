@@ -14,12 +14,12 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       comment: '项目描述',
     },
-    startTime: {
+    begin: {
       type: DataTypes.DATE,
       allowNull: false,
       comment: '开始时间'
     },
-    endTime: {
+    end: {
       type: DataTypes.DATE,
       comment: '结束时间'
     },
@@ -31,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       comment: '网络链接',
     },
-    org: {
+    organization: {
       type: DataTypes.STRING,
       comment: '项目单位/组织'
     }

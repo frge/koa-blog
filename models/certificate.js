@@ -10,7 +10,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       comment: '证书名称',
     },
-    issued: {
+    date: {
       type: DataTypes.DATE,
       allowNull: false,
       comment: '获证时间',

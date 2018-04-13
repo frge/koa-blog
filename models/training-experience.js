@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    trainingTime: {
+    date: {
       type: DataTypes.DATE,
       allowNull: false,
       comment: '受训时间'
@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       comment: '培训机构'
     },
-    trainingContent: {
+    content: {
       type: DataTypes.STRING,
       allowNull: false,
       comment: '培训内容'
